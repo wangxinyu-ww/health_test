@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@+id/navigation_home_fragment">
+    <fragment
+        android:id="@+id/navigation_heart_rate_fragment"
+        android:name="com.example.healthlife.ui.heartRates.HeartRateFragment"
+        android:label="@string/title_heart_rate"
+        tools:layout="@layout/fragment_heart_rate" />
+    <fragment
+        android:id="@+id/navigation_mine_fragment"
+        android:name="com.example.healthlife.ui.mine.MineFragment"
+        android:label="@string/title_mine"
+        tools:layout="@layout/fragment_mine" />
+    <fragment
+        android:id="@+id/navigation_home_fragment"
+        android:name="com.example.healthlife.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/navigation_sport_fragment"
+        android:name="com.example.healthlife.ui.Sport.SportFragment"
+        android:label="@string/title_sport"
+        tools:layout="@layout/fragment_sport" />
+    <fragment
+        android:id="@+id/navigation_find_fragment"
+        android:name="com.example.healthlife.ui.find.FindFragment"
+        android:label="@string/title_find"
+        tools:layout="@layout/fragment_find" />
+
+
+    <dialog
+        android:id="@+id/alertDialogFragment"
+        android:name="com.example.healthlife.base.dialog.AlertDialogFragment"
+        android:label="fragment_dialog_ptt_alert">
+        <argument
+            android:name="titleResId"
+            android:defaultValue="@string/dialog_title_info"
+            app:argType="reference" />
+        <argument
+            android:name="messageResId"
+            app:argType="reference" />
+        <argument
+            android:name="cancelable"
+            android:defaultValue="true"
+            app:argType="boolean" />
+        <argument
+            android:name="dialogType"
+            android:defaultValue="DEFAULT"
+            app:argType="com.example.healthlife.base.dialog.AlertDialogFragment$Type" />
+    </dialog>
+
+</navigation>

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">健康生活</string>
+    <string name="title_sport">运动</string>
+    <string name="title_find">发现</string>
+    <string name="title_heart_rate">心率</string>
+    <string name="title_mine">我的</string>
+    <string name="health_test">健康检测</string>
+    <string name="health_test_english">health test</string>
+    <string name="skip">%1$d秒,跳过</string>
+    <string name="advert_desc">这个是一个广告标题</string>
+    <string name="advert_content_desc">这是一个广告的内容</string>
+    <string name="search">搜索</string>
+    <string name="login">登录</string>
+    <string name="title_home">首页</string>
+    <string name="dialog_btn_ok">确定</string>
+    <string name="dialog_btn_cancel">关闭</string>
+    <string name="dialog_title_info">提示</string>
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_login"
+    app:startDestination="@+id/splashFragment">
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.healthlife.ui.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_guideFragment"
+            app:destination="@id/guideFragment"
+            app:enterAnim="@animator/nav_default_enter_anim"
+            app:exitAnim="@animator/nav_default_exit_anim"/>
+        <action
+            android:id="@+id/action_splashFragment_to_advertFragment"
+            app:destination="@id/advertFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/advertFragment"
+        android:name="com.example.healthlife.ui.AdvertFragment"
+        android:label="AdvertFragment"/>
+    <fragment
+        android:id="@+id/guideFragment"
+        android:name="com.example.healthlife.ui.GuideFragment"
+        android:label="GuideFragment"
+        tools:layout="@layout/fragment_guide"/>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.healthlife.ui.MainFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_main"/>
+</navigation>
