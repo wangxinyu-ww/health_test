@@ -15,4 +15,5 @@
     <string name="dialog_btn_ok">确定</string>
     <string name="dialog_btn_cancel">关闭</string>
     <string name="dialog_title_info">提示</string>
+    <string name="sport_mall">运动商场</string>
 </resources>

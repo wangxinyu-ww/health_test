@@ -1,18 +1,14 @@
 package com.example.healthlife.base.adapter
 
-import com.example.healthlife.base.UILogger.Companion.instance
-import com.example.healthlife.base.adapter.paging.BaseViewHolder.viewBinding
-import androidx.viewbinding.ViewBinding
-import com.example.healthlife.base.UILogger
-import androidx.lifecycle.MutableLiveData
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.AsyncDifferConfig
-import android.view.View.OnLongClickListener
-import androidx.lifecycle.LiveData
-import android.view.ViewGroup
 import android.view.LayoutInflater
-import android.view.View
+import android.view.ViewGroup
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.recyclerview.widget.AsyncDifferConfig
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
+import androidx.viewbinding.ViewBinding
+import com.example.healthlife.base.UILogger.Companion.instance
 import com.example.healthlife.base.adapter.paging.BaseViewHolder
 
 /**
@@ -26,19 +22,19 @@ import com.example.healthlife.base.adapter.paging.BaseViewHolder
  *
  * @param <VB> the type parameter
 </VB> */
-abstract class BaseListAdapter<VB : ViewBinding?, T> : ListAdapter<T, BaseViewHolder<VB>> {
+abstract class BaseListAdapter<VB : ViewBinding, T> : ListAdapter<T, BaseViewHolder<VB>> {
     protected val logger = instance
-    protected var onItemClickLiveData = MutableLiveData<T?>()
-    protected var onItemLongClickLiveData = MutableLiveData<T?>()
+    open var onItemClickLiveData = MutableLiveData<T>()
+    open var onItemLongClickLiveData = MutableLiveData<T>()
 
-    protected constructor(diffCallback: DiffUtil.ItemCallback<T>) : super(diffCallback) {}
-    protected constructor(config: AsyncDifferConfig<T>) : super(config) {}
+    protected constructor(diffCallback: DiffUtil.ItemCallback<T>) : super(diffCallback)
+    protected constructor(config: AsyncDifferConfig<T>) : super(config)
 
     override fun onBindViewHolder(holder: BaseViewHolder<VB>, position: Int) {
         // 如果直接在内部类里使用getItem，当删除前面position的item，又不重新走onBindViewHolder，则会引发数组下标越界异常
         val item = getItem(position)
-        holder.viewBinding!!.root.setOnClickListener { v: View? -> onItemClickLiveData.setValue(item) }
-        holder.viewBinding.root.setOnLongClickListener { v: View? ->
+        holder.viewBinding.root.setOnClickListener { onItemClickLiveData.setValue(item) }
+        holder.viewBinding.root.setOnLongClickListener {
             onItemLongClickLiveData.setValue(item)
             true
         }
@@ -49,7 +45,7 @@ abstract class BaseListAdapter<VB : ViewBinding?, T> : ListAdapter<T, BaseViewHo
      *
      * @return the item click live data
      */
-    fun getOnItemClickLiveData(): LiveData<T?> {
+    fun getOnItemClickLiveData(): LiveData<T> {
         return onItemClickLiveData
     }
 
@@ -58,7 +54,7 @@ abstract class BaseListAdapter<VB : ViewBinding?, T> : ListAdapter<T, BaseViewHo
      *
      * @return the item long click live data
      */
-    fun getOnItemLongClickLiveData(): LiveData<T?> {
+    fun getOnItemLongClickLiveData(): LiveData<T> {
         return onItemLongClickLiveData
     }
 
@@ -67,7 +63,7 @@ abstract class BaseListAdapter<VB : ViewBinding?, T> : ListAdapter<T, BaseViewHo
     }
 
     protected abstract fun getViewBinding(
-        inflater: LayoutInflater?,
+        inflater: LayoutInflater,
         parent: ViewGroup,
         viewType: Int
     ): VB

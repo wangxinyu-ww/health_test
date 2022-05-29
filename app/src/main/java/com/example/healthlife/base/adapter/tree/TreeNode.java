@@ -1,4 +1,4 @@
-package com.example.ui.base.recyclerview.tree;
+package com.example.healthlife.base.adapter.tree;
 
 import androidx.annotation.NonNull;
 

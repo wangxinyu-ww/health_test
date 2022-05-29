@@ -1,4 +1,4 @@
-package com.example.ui.base.recyclerview.tree;
+package com.example.healthlife.base.adapter.tree;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.pdt.ui.recyclerview.BaseViewHolder;
+import com.example.healthlife.base.adapter.paging.BaseViewHolder;
 
 import java.util.ArrayList;
 import java.util.Iterator;

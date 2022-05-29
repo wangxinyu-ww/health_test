@@ -1,4 +1,4 @@
-package com.example.healthlife.base.adapter
+package com.example.healthlife.base.adapter.paging
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

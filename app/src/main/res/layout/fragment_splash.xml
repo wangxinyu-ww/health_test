@@ -52,7 +52,7 @@
         android:layout_gravity="center_vertical"
         android:indeterminate="true"
         android:visibility="visible"
-        app:indicatorColor="@color/red"
+        app:indicatorColor="@color/action_sheet_blue"
         app:hideAnimationBehavior="outward"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

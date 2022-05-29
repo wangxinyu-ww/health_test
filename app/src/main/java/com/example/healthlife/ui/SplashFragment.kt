@@ -6,13 +6,10 @@ import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.activity.OnBackPressedCallback
-import androidx.lifecycle.coroutineScope
 import com.example.healthlife.R
 import com.example.healthlife.base.fragment.BaseViewBindingFragment
 import com.example.healthlife.databinding.FragmentSplashBinding
 import com.example.healthlife.utils.SharePreferenceUtils
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 
 class SplashFragment :
@@ -36,16 +33,6 @@ class SplashFragment :
             }
 
         })
-        val progress = getLoadingProgress()
-        viewBinding.progress.setProgressCompat(progress as Int, true)
-        viewBinding.progress.max = 100
-        viewBinding.progress.progress = progress
-        if (viewBinding.progress.progress == 100){
-            lifecycle.coroutineScope.launch {
-                delay(1000)
-                timer.start()
-            }
-        }
         requireActivity().onBackPressedDispatcher
             .addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
@@ -54,12 +41,32 @@ class SplashFragment :
             })
     }
 
-    private fun getLoadingProgress(): Any {
-        progress += 10
-        return progress
-
-    }
-
+//    private fun autoIncrease() {
+//        val mThread = Thread(Runnable {
+//            while (progress <= 100) {
+//                progress += 10
+//                if (progress > 100) {
+//                    break
+//                }
+//                requireActivity().runOnUiThread(Runnable {
+//                    viewBinding.progress.setProgressCompat(progress as Int, true)
+//                    if (viewBinding.progress.progress == 100){
+//                        lifecycle.coroutineScope.launch {
+//                            delay(1000)
+//                            timer.start()
+//                        }
+//                    }
+//                })
+//                try {
+//                    Thread.sleep(200)
+//                } catch (e: InterruptedException) {
+//                    e.printStackTrace()
+//                }
+//            }
+//        }
+//        )
+//        mThread.start()
+//    }
     override fun onResume() {
         super.onResume()
     }

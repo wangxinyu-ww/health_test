@@ -1,11 +1,10 @@
 package com.example.healthlife.base.adapter
 
-import androidx.viewbinding.ViewBinding
-import com.example.healthlife.base.adapter.BaseListAdapter
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.AsyncDifferConfig
+import androidx.recyclerview.widget.DiffUtil
+import androidx.viewbinding.ViewBinding
 
-abstract class BaseSelectionAdapter<VB : ViewBinding?, T> : BaseListAdapter<VB, T> {
+abstract class BaseSelectionAdapter<VB : ViewBinding, T> : BaseListAdapter<VB, T> {
     protected constructor(diffCallback: DiffUtil.ItemCallback<T>) : super(diffCallback) {}
     protected constructor(config: AsyncDifferConfig<T>) : super(config) {}
 
